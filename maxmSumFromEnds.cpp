@@ -1,4 +1,4 @@
-// Given an arrya and a value k, find maximum sum of k elements from the ends
+// Given an array and a value k, find maximum sum of k elements from the ends
 
 #include<bits/stdc++.h>
 using namespace std;
