@@ -10,9 +10,9 @@ int maximiseParam(int x[], int p[], int n) {
     while (left < right) {
         maxm = max(maxm, x[left] + x[right] + p[right] - p[left]);
         if (x[left + 1] - p[left + 1] < x[right - 1] + p[right - 1]) {
-            right--;
-        } else {
             left++;
+        } else {
+            right--;
         }
     }
     return maxm;
