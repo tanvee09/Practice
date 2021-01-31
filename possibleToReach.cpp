@@ -22,33 +22,16 @@ bool isPathPossible(vector<vector<int>> matrix, vector<vector<int>> visited, int
     return false;
 }
 
-bool isPathPossible2(vector<vector<int>> matrix, int m, int n) {
-    vector<vector<bool>> isPossible(m, vector<bool>(n, false));
-    isPossible[0][0] = true;
-    for (int i = 1; i < m; i++)
-        if (matrix[i][0] <= matrix[i - 1][0])
-            isPossible[i][0] = isPossible[i - 1][0];
-    for (int j = 1; j < n; j++)
-        if (matrix[0][j] <= matrix[0][j - 1])
-            isPossible[j][0] = isPossible[0][j - 1];
-    for (int i = 1; i < m; i++)
-        for (int j = 1; j < n; j++) {
-            if ((matrix[i][j] <= matrix[i - 1][j] && isPossible[i - 1][j]) || (matrix[i][j] <= matrix[i][j - 1] && isPossible[i][j - 1]))
-                isPossible[i][j] = true;
-        }
-    return isPossible[m - 1][n - 1];
-}
 
 int main()
 {
     int n = 5, m = 4;
     vector<vector<int>> matrix = {{25, 25, 40, 22},
-                                  {25, 25, 19, 18},
-                                  {40, 40, 40, 14},
-                                  {13, 12, 11, 10},
-                                  { 9,  8,  7,  6}};
+                                  {26, 25, 40, 18},
+                                  {25, 25, 40, 14},
+                                  {25, 40, 40, 40},
+                                  {25, 25, 25, 25}};
     vector<vector<int>> visited(n, vector<int>(m, false));
     cout << isPathPossible(matrix, visited, n, m, 0, 0) << endl;
-    cout << isPathPossible2(matrix, n, m) << endl;
     return 0;
 }
